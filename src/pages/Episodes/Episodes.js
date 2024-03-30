@@ -1,11 +1,29 @@
 import { Link } from "react-router-dom";
+import Search from "../../components/Search";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const Episodes = ({ data }) => {
+    const searchText = useSelector(state => state.search.searchText);
+    const [filteredData, setFilteredData] = useState([]);
+
+    useEffect(() => {
+        if (data?.results.length > 0) {
+            setFilteredData(
+                data?.results.filter((episode) =>
+                episode.name.toLowerCase().includes(searchText.toLowerCase()) ||
+                episode.episode.toLowerCase().includes(searchText.toLowerCase()) ||
+                episode.air_date.toLowerCase().includes(searchText.toLowerCase())
+                )
+            );
+        }
+    }, [searchText, data])
     return (
         <div className="container mx-auto">
+            <Search />
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {
-                data?.results.map((episode, index) => (
+                filteredData?.map((episode, index) => (
                     <Link
                         to={`/episode/${episode.id}`}
                         key={index} 

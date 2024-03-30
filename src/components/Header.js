@@ -15,7 +15,7 @@ const Header = () => {
                         <NavLink to={'/'} className={(splittedPath === '' || splittedPath === 'episode') ? "text-blue-600 cursor-pointer" : "hover:text-blue-600 cursor-pointer"}>Episodes</NavLink>
                         <NavLink to={'/character'} className={(splittedPath === 'character') ? "text-blue-600 cursor-pointer" : "hover:text-blue-600 cursor-pointer"}>Characters</NavLink>
                         <NavLink to={'/location'} className={(splittedPath === 'location') ? "text-blue-600 cursor-pointer" : "hover:text-blue-600 cursor-pointer"}>Locations</NavLink>
-                        <NavLink to={'/search'} className={(splittedPath === 'search') ? "text-blue-600 cursor-pointer" : "hover:text-blue-600 cursor-pointer"}>Search</NavLink>
+                        <NavLink to={'/favorite'} className={(splittedPath === 'favorite') ? "text-blue-600 cursor-pointer" : "hover:text-blue-600 cursor-pointer"}>Favorites</NavLink>
                     </div>
                 </div>
             </div>
