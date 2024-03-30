@@ -55,7 +55,6 @@ const Pagination = () => {
                 :
                 <h1>Something  went wrong...</h1>
             }
-            {console.log(data)}
             <Paginate
                 className='mt-5'
                 count={data?.data?.info.pages}
