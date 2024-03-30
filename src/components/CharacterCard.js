@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { addFavoriteCharacter, removeFavoriteCharacter, resetLimitReachedMessage } from "../features/favoriteCharactersSlice";
 import Message from "./Message";
 
-const CharacterCard = ({ character, isFavorite }) => {
+const CharacterCard = ({ character, isFavorite, imgSize }) => {
     const dispatch = useDispatch();
     const showLimitReachedMessage = useSelector(state => state.favoriteCharacters.showLimitReachedMessage);
     const [isVisible, setIsVisible] = useState(showLimitReachedMessage);
@@ -35,7 +35,7 @@ const CharacterCard = ({ character, isFavorite }) => {
     };
 
     return (
-        <div>
+        <div className="">
             <Link
                 key={character.id}
                 to={`/character/${character.id}`}
@@ -57,11 +57,11 @@ const CharacterCard = ({ character, isFavorite }) => {
                         )}
                     </div>
                     <div className="flex space-x-2">
-                        <h1>Species:</h1>
+                        <h1 className="font-bold">Species:</h1>
                         <h1 className="font-thin">{character.species}</h1>
                     </div>
                     <div className="flex space-x-2">
-                        <h1>Type:</h1>
+                        <h1 className="font-bold">Type:</h1>
                         {(character.type === '') ? (
                             <h1 className="font-thin">Unknown</h1>
                         ) : (
@@ -69,7 +69,7 @@ const CharacterCard = ({ character, isFavorite }) => {
                         )}
                     </div>
                     <div className="flex space-x-2">
-                        <h1>Gender:</h1>
+                        <h1 className="font-bold">Gender:</h1>
                         <h1 className="font-thin">{character.gender}</h1>
                     </div>
                 </div>

@@ -61,7 +61,7 @@ const CharacterDetails = () => {
                     <div>
                         <img src={data.image} alt={data.name} className="w-[400px]" />
                     </div>
-                    <div className="text-xl p-4 space-y-3">
+                    <div className="text-xl p-4 space-y-3 items-center">
                         <h1 className="font-bold text-3xl">{data.name}</h1>
                         <div className="flex text-xl items-center space-x-2">
                             <h1 className={(data.status === 'Alive') ? "font-thin text-green-500" : (data.status === 'Dead') ? "font-thin text-red-500" : "font-thin text-gray-500"}>{data.status}</h1>
@@ -74,11 +74,11 @@ const CharacterDetails = () => {
                             )}
                         </div>
                         <div className="flex space-x-1">
-                            <p>Species:</p>
+                            <p className="font-bold">Species:</p>
                             <p>{data.species}</p>
                         </div>
                         <div className="flex space-x-1">
-                            <p>Type:</p>
+                            <p className="font-bold">Type:</p>
                             {(data.type === '') ? (
                                 <p>Unknown</p>
                             ) : (
@@ -86,25 +86,25 @@ const CharacterDetails = () => {
                             )}
                         </div>
                         <div className="flex space-x-1">
-                            <p>Gender:</p>
+                            <p className="font-bold">Gender:</p>
                             <p>{data.gender}</p>
                         </div>
                         <div className="flex space-x-1">
-                            <p>Origin:</p>
+                            <p className="font-bold">Origin:</p>
                             <Link
                                 to={(data.origin?.name !== 'unknown') ? `/location/${data.origin?.url?.split('/')[5]}` : `#`}
                                 className="text-blue-500 hover:underline">
                                 {data.origin?.name}</Link>
                         </div>
                         <div className="flex space-x-1">
-                            <p>Location:</p>
+                            <p className="font-bold">Location:</p>
                             <Link
                                 to={(data.location?.name !== 'unknown') ? `/location/${data.location?.url?.split('/')[5]}` : `#`}
                                 className="text-blue-500 hover:underline">
                                 {data.location?.name}</Link>
                         </div>
                         <div className="flex space-x-1">
-                            <p>Episodes:</p>
+                            <p className="font-bold">Episodes:</p>
                             <div className="grid grid-cols-7 sm:grid-cols-12">
                                 {data.episode?.map((episode, index) => (
                                     <Link

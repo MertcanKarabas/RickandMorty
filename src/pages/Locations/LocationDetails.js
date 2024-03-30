@@ -46,37 +46,41 @@ const LocationDetails = () => {
 
     return (
         <div className="container mx-auto">
-            <div className="flex items-center p-4 my-2 rounded-md shadow-md bg-gray-200">
+            <div className="items-center p-4 my-2 rounded-md shadow-md bg-gray-200">
                 <div>
                     <div className="flex space-x-1">
-                        <h1>Name: </h1>
+                        <h1 className="font-bold">Name: </h1>
                         <h1>{data.name}</h1>
                     </div>
                     <div className="flex space-x-1">
-                        <h1>Type: </h1>
+                        <h1 className="font-bold">Type: </h1>
                         <h1>{data.type}</h1>
                     </div>
                     <div className="flex space-x-1">
-                        <h1>Dimension: </h1>
+                        <h1 className="font-bold">Dimension: </h1>
                         <h1>{data.dimension}</h1>
                     </div>
                     <div className="flex flex-col space-x-1">
-                        <h1>Residents in Episode: </h1>
-                        <div className={`${allLocations.length === 0 ? '' : 'grid grid-cols-3 sm:grid-cols-5 '}`}>
+                        <h1 className="font-bold">Residents in Episode: </h1>
+                        <div className={`${allLocations.length === 0 ? '' : 'mt-5 grid grid-cols-3 sm:grid-cols-5 gap-y-5 '}`}>
                             {
                                 (allLocations?.length > 0) ?
                                     allLocations.map((character) => {
                                         return (
-                                            <Link
-                                                to={`/character/${character.id}`}
-                                                key={character.id}
-                                                className="flex flex-col items-center justify-center text-center">
-                                                <img
-                                                    src={character.image}
-                                                    alt={character.name}
-                                                    className="rounded-full w-20 h-20 " />
-                                                <p>{character.name}</p>
-                                            </Link>
+                                            <div className="container w-48 h-48">
+                                                <div className="bg-white rounded-md shadow-md p-4">
+                                                   <Link
+                                                        to={`/character/${character.id}`}
+                                                        key={character.id}
+                                                        className=" flex flex-col items-center justify-center text-center">
+                                                        <img
+                                                            src={character.image}
+                                                            alt={character.name}
+                                                            className="rounded-full w-20 h-20 " />
+                                                        <p>{character.name}</p>
+                                                    </Link>
+                                                </div>
+                                            </div>
                                         )
                                     }) :
                                     <p className="">There are no residents in this location.</p>
